@@ -1,0 +1,7 @@
+Server:
+        Port: 9852
+DailyBackups:
+        - "/PATH/OF/FILE1.tar"
+        - "/PATH/OF/FILE2.sql"
+
+
