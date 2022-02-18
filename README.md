@@ -6,7 +6,7 @@ it gets backup sizes and stores them in the promethues.
 ### How to build
 ```
 go get ./..
-go build -o backup-exporter.go ./
+go build -o backup-exporter ./
 ```
 ### How to Use
 edit config.yml:   
