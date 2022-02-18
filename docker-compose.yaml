@@ -1,0 +1,10 @@
+services:
+  backup-exporter:
+    image: backup-exporter
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./config:/backup-exporter/config
+      - /backup:/backup # example volume for your backups directory (use your destination path as base address for config)
+    network_mode: host # this is needed since port can change dymically
