@@ -1,6 +1,4 @@
 Server:
-        Port: 88088
+  Port: 88088
 DailyBackups:
-        - "/just/4/test"
-
-
+  - "/just/4/test"

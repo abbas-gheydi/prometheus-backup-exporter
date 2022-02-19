@@ -1,10 +1,10 @@
 # prometheus-backup-exporter
 ## About The Project
-prometheus backup exporter is desigend to monitor backups.   
-it gets backup sizes and stores them in the promethues.   
+prometheus backup exporter is designed to monitor backups.   
+it gets backup sizes and stores them in the prometheus.   
  
 ### How to build
-```
+```bash
 go get ./..
 go build -o backup-exporter ./
 ```
@@ -12,21 +12,19 @@ go build -o backup-exporter ./
 edit config.yml:   
 ```yml
 Server:
-        Port: 18083
+  Port: 18083
 DailyBackups:
-        - "/home/ubuntu/backup/db/backend-db.sql"
-        - "/home/ubuntu/tar/backup.tar"
-        - "/home/ubuntu/backup/constant.json"
+  - "/home/ubuntu/backup/db/backend-db.sql"
+  - "/home/ubuntu/tar/backup.tar"
+  - "/home/ubuntu/backup/constant.json"
 ```
 
-here are some prometheus alert rules exapmple:   
+here are some prometheus alert rules example:   
 ```yaml
   rules.yml: |
    groups:
    - name: example
      rules:
-
-
      - alert: backups size is wrong
        expr: (backup_size == 0) or (backup_size {backup!="_home_ubuntu_backup_constant_json"} <= backup_size offset 1d)
        for: 1m
@@ -39,3 +37,14 @@ here are some prometheus alert rules exapmple:
        labels:
         severity: critical
 ```
+
+### Docker usage
+
+just run 
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+it will bring it up using docker compose file that is present here.
