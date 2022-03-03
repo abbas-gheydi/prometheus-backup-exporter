@@ -10,7 +10,7 @@ func TestReadConf(t *testing.T) {
 		t.Error("could not read config file")
 	}
 
-	if configuration.Server.Port != "88088"{
+	if configuration.Server.Port != "8808"{
 	t.Error ("could not get server port from config file")
 	}
 
